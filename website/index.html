@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECHINDIA PROJECT CENTER - Mini Projects, BE Projects, Science Projects</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-microchip"></i>
+                <h1>TECHINDIA PROJECT CENTER</h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="active">Home</a>
+                <a href="#projects">Projects</a>
+                <a href="https://youtube.com/@techindiawelcome?si=DhLk23zJ3-fZZO_y" target="_blank">YouTube</a>
+                <a href="#contact">Contact</a>
+                <a href="order-status.html" class="btn-order">Order Status</a>
+                <a href="login.html" class="btn-login">Login</a>
+            </nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Build Your Future with Innovative Projects</h2>
+            <p>We specialize in Mini Projects, Science Projects, BE Projects, and projects across all departments. Quality guidance and complete project support for students.</p>
+            <a href="#projects" class="btn-primary">Explore Projects</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About TECHINDIA PROJECT CENTER</h2>
+            <p>Welcome to TECHINDIA PROJECT CENTER - your trusted partner in academic project development. We provide comprehensive project solutions for students across various disciplines including Engineering, Science, and Technology. Our expert team ensures quality guidance, timely delivery, and complete documentation for every project.</p>
+            <div class="features">
+                <div class="feature-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>BE Projects</h3>
+                    <p>Complete engineering projects with documentation and guidance</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-flask"></i>
+                    <h3>Science Projects</h3>
+                    <p>Innovative science projects for school and college students</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Mini Projects</h3>
+                    <p>Quick and effective mini projects for all departments</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>All Departments</h3>
+                    <p>CSE, ECE, EEE, Mechanical, Civil and more</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2>Our Project Topics</h2>
+            <p>Browse through our extensive collection of project topics. Click on any topic to view details and download the abstract PDF.</p>
+            
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="mini">Mini Projects</button>
+                <button class="filter-btn" data-filter="be">BE Projects</button>
+                <button class="filter-btn" data-filter="science">Science Projects</button>
+                <button class="filter-btn" data-filter="cse">CSE/IT</button>
+                <button class="filter-btn" data-filter="ece">ECE</button>
+                <button class="filter-btn" data-filter="eee">EEE</button>
+            </div>
+
+            <!-- Project List -->
+            <div class="project-grid" id="projectGrid">
+                <!-- Projects will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <h2 id="modalTitle"></h2>
+                <p class="modal-category" id="modalCategory"></p>
+                <div class="modal-description" id="modalDescription"></div>
+                <div class="modal-features" id="modalFeatures"></div>
+                <div class="modal-actions">
+                    <button class="btn-download" id="downloadPdf">
+                        <i class="fas fa-file-pdf"></i> Download Abstract PDF
+                    </button>
+                    <button class="btn-order-project" id="orderProject">
+                        <i class="fas fa-shopping-cart"></i> Order This Project
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Modal -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content order-modal-premium">
+            <span class="close-modal">&times;</span>
+            <div class="order-modal-header">
+                <div class="order-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <h2>Order Project</h2>
+                <p class="order-subtitle">Fill in your details to place an order</p>
+            </div>
+            <div class="order-project-info" id="orderProjectInfo">
+                <span class="project-badge"><i class="fas fa-folder"></i> <span id="orderProjectTitle"></span></span>
+            </div>
+            <form id="orderForm" class="order-form-premium">
+                <input type="hidden" id="orderProjectId">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Full Name *</label>
+                        <input type="text" id="orderName" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-phone"></i> Mobile Number *</label>
+                        <input type="tel" id="orderMobile" pattern="[0-9]{10}" required placeholder="10 digit mobile number" maxlength="10">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email Address *</label>
+                    <input type="email" id="orderEmail" required placeholder="Enter your email address">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-map-marker-alt"></i> Delivery Address *</label>
+                    <textarea id="orderAddress" rows="3" required placeholder="Enter your complete address"></textarea>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-map-pin"></i> Pin Code *</label>
+                    <input type="text" id="orderPincode" pattern="[0-9]{6}" required placeholder="6 digit pin code" maxlength="6">
+                </div>
+                <div class="order-note">
+                    <i class="fas fa-info-circle"></i>
+                    <span>A 6-digit order code will be generated for tracking your order status.</span>
+                </div>
+                <button type="submit" class="btn-order-submit">
+                    <i class="fas fa-paper-plane"></i> Place Order
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Address</h3>
+                        <p>No83 PERIYAR SALAI, CHENGAPATU, UNAMANCHERI, KOLAPAKKAM, CHENNAI-600127</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-phone"></i>
+                        <h3>Mobile Number</h3>
+                        <p><a href="tel:9940584023">9940584023</a></p>
+                        <p><a href="tel:8300680753">8300680753</a></p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p><a href="mailto:techindia2026@gmail.com">techindia2026@gmail.com</a></p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Shop Time</h3>
+                        <p>9.00 AM to 9.00 PM</p>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="https://youtube.com/@techindiawelcome?si=DhLk23zJ3-fZZO_y" target="_blank" class="youtube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://github.com/techindia2026-lab" target="_blank" class="github">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://chat.whatsapp.com/GNpaSenF4cGHBdhQo0liR4" target="_blank" class="whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/tech-india-86aa4a414/" target="_blank" class="linkedin">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.instagram.com/techindiaprojcet/" target="_blank" class="instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://classroom.google.com/c/ODU1MzQ3OTAwMTk2?cjc=muczniw7" target="_blank" class="classroom">
+                            <i class="fab fa-google"></i>
+                        </a>
+                    </div>
+                    <div class="classroom-code">
+                        <p><strong>Google Classroom Code:</strong> muczniw7</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-microchip"></i>
+                    <h3>TECHINDIA PROJECT CENTER</h3>
+                </div>
+                <p>&copy; 2026 TECHINDIA PROJECT CENTER. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "title": "Smart Home Automation System",
+        "category": "be",
+        "department": "cse",
+        "shortDesc": "IoT-based home automation with mobile app control",
+        "description": "A comprehensive smart home automation system that allows users to control home appliances through a mobile application. The system uses Arduino/Raspberry Pi as the main controller and integrates various sensors for automation.",
+        "features": ["IoT Integration", "Mobile App Control", "Voice Commands", "Sensor Automation", "Energy Monitoring"],
+        "status": "active"
+    },
+    {
+        "id": 2,
+        "title": "Hospital Management System",
+        "category": "be",
+        "department": "cse",
+        "shortDesc": "Complete hospital management with patient records",
+        "description": "A full-stack web application for managing hospital operations including patient registration, appointment scheduling, doctor management, billing, and medical records management.",
+        "features": ["Patient Management", "Appointment Booking", "Billing System", "Medical Records", "Report Generation"],
+        "status": "active"
+    },
+    {
+        "id": 3,
+        "title": "Automatic Plant Watering System",
+        "category": "mini",
+        "department": "ece",
+        "shortDesc": "Automatic irrigation system with soil moisture sensors",
+        "description": "An intelligent plant watering system that automatically waters plants based on soil moisture levels. Features real-time monitoring and can be controlled via smartphone.",
+        "features": ["Soil Moisture Sensor", "Automatic Watering", "Mobile Alert", "Water Level Monitoring", "Solar Powered"],
+        "status": "active"
+    },
+    {
+        "id": 4,
+        "title": "Solar Power Monitoring System",
+        "category": "be",
+        "department": "eee",
+        "shortDesc": "Monitor and optimize solar panel efficiency",
+        "description": "A system to monitor solar panel performance, track energy generation, and optimize power usage. Includes real-time data visualization and efficiency reports.",
+        "features": ["Real-time Monitoring", "Efficiency Analysis", "Mobile App", "Data Logging", "Alert System"],
+        "status": "active"
+    },
+    {
+        "id": 5,
+        "title": "Smart Traffic Control System",
+        "category": "be",
+        "department": "ece",
+        "shortDesc": "Intelligent traffic management using image processing",
+        "description": "An intelligent traffic control system that uses image processing and machine learning to optimize traffic signal timing based on vehicle density.",
+        "features": ["Image Processing", "Machine Learning", "Real-time Analysis", "Emergency Vehicle Priority", "Traffic Density Reports"],
+        "status": "active"
+    },
+    {
+        "id": 6,
+        "title": "Biometric Attendance System",
+        "category": "mini",
+        "department": "cse",
+        "shortDesc": "Fingerprint-based attendance management",
+        "description": "A biometric attendance system using fingerprint recognition for employee/student attendance tracking with report generation capabilities.",
+        "features": ["Fingerprint Recognition", "Real-time Tracking", "Report Generation", "Database Integration", "Email Alerts"],
+        "status": "active"
+    },
+    {
+        "id": 7,
+        "title": "Water Quality Monitoring",
+        "category": "science",
+        "department": "eee",
+        "shortDesc": "Real-time water quality analysis system",
+        "description": "A science project that monitors water quality parameters like pH, turbidity, and temperature. Ideal for environmental science studies.",
+        "features": ["pH Sensor", "Turbidity Measurement", "Temperature Monitoring", "Data Display", "Alert System"],
+        "status": "active"
+    },
+    {
+        "id": 8,
+        "title": "Robotic Arm Control",
+        "category": "mini",
+        "department": "mechanical",
+        "shortDesc": "Arduino-controlled robotic arm with 4 DOF",
+        "description": "A robotic arm project with 4 degrees of freedom controlled via Arduino. Can be programmed for various pick-and-place operations.",
+        "features": ["4 DOF Movement", "Arduino Control", "Gripper Mechanism", "Remote Control", "Programmable Path"],
+        "status": "active"
+    },
+    {
+        "id": 9,
+        "title": "Online Examination System",
+        "category": "be",
+        "department": "cse",
+        "shortDesc": "Complete online exam platform with proctoring",
+        "description": "A comprehensive online examination platform with features like question bank management, automated grading, anti-cheating measures, and detailed analytics.",
+        "features": ["Question Bank", "Auto Grading", "Proctoring System", "Analytics Dashboard", "Certificate Generation"],
+        "status": "active"
+    },
+    {
+        "id": 10,
+        "title": "Weather Monitoring Station",
+        "category": "science",
+        "department": "ece",
+        "shortDesc": "Complete weather data collection and display",
+        "description": "A weather monitoring station that measures temperature, humidity, pressure, and rainfall. Data can be viewed on LCD display or transmitted to a web server.",
+        "features": ["Temperature Sensor", "Humidity Sensor", "Rain Gauge", "Wind Speed", "Web Interface"],
+        "status": "active"
+    },
+    {
+        "id": 11,
+        "title": "Electric Vehicle Charging Station",
+        "category": "be",
+        "department": "eee",
+        "shortDesc": "Smart EV charging with payment integration",
+        "description": "A smart electric vehicle charging station prototype with payment integration, user authentication, and charging status monitoring.",
+        "features": ["RFID Authentication", "Payment System", "Real-time Monitoring", "Mobile App", "Energy Metering"],
+        "status": "active"
+    },
+    {
+        "id": 12,
+        "title": "Library Management System",
+        "category": "mini",
+        "department": "cse",
+        "shortDesc": "Digital library with book tracking and fines",
+        "description": "A complete library management system with book cataloging, member management, issue/return tracking, and fine calculation features.",
+        "features": ["Book Catalog", "Member Management", "Barcode Scanner", "Fine Calculation", "Email Reminders"],
+        "status": "active"
+    }
+]

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Status - TECHINDIA PROJECT CENTER</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <i class="fas fa-microchip"></i>
+                    <h1>TECHINDIA PROJECT CENTER</h1>
+                </a>
+            </div>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="index.html#projects">Projects</a>
+                <a href="https://youtube.com/@techindiawelcome?si=DhLk23zJ3-fZZO_y" target="_blank">YouTube</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="login.html" class="btn-login">Login</a>
+            </nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Order Status Section -->
+    <section class="order-status-section">
+        <div class="container">
+            <div class="order-status-box">
+                <h2><i class="fas fa-clipboard-list"></i> Check Order Status</h2>
+                <p>Enter your mobile number and the 6-digit order code to check your order status.</p>
+                
+                <form id="orderStatusForm">
+                    <div class="form-group">
+                        <label><i class="fas fa-phone"></i> Mobile Number</label>
+                        <input type="tel" id="statusMobile" pattern="[0-9]{10}" required placeholder="Enter 10 digit mobile number" maxlength="10">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-key"></i> 6-Digit Order Code</label>
+                        <input type="text" id="orderCode" pattern="[0-9]{6}" required placeholder="Enter 6-digit code" maxlength="6">
+                    </div>
+                    <div class="form-group captcha-group">
+                        <label><i class="fas fa-shield-alt"></i> Captcha</label>
+                        <div class="captcha-box">
+                            <span id="captchaText"></span>
+                            <button type="button" id="refreshCaptcha" class="btn-refresh">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </div>
+                        <input type="text" id="captchaInput" required placeholder="Enter the captcha">
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-search"></i> Check Status
+                    </button>
+                </form>
+
+                <!-- Order Result -->
+                <div class="order-result" id="orderResult" style="display: none;">
+                    <div class="result-header">
+                        <h3>Order Details</h3>
+                        <span class="status-badge" id="orderStatusBadge"></span>
+                    </div>
+                    <div class="result-body">
+                        <div class="result-row">
+                            <strong>Order ID:</strong>
+                            <span id="resultOrderId"></span>
+                        </div>
+                        <div class="result-row">
+                            <strong>Project:</strong>
+                            <span id="resultProject"></span>
+                        </div>
+                        <div class="result-row">
+                            <strong>Customer Name:</strong>
+                            <span id="resultName"></span>
+                        </div>
+                        <div class="result-row">
+                            <strong>Mobile:</strong>
+                            <span id="resultMobile"></span>
+                        </div>
+                        <div class="result-row">
+                            <strong>Email:</strong>
+                            <span id="resultEmail"></span>
+                        </div>
+                        <div class="result-row">
+                            <strong>Address:</strong>
+                            <span id="resultAddress"></span>
+                        </div>
+                        <div class="result-row">
+                            <strong>Pin Code:</strong>
+                            <span id="resultPincode"></span>
+                        </div>
+                        <div class="result-row">
+                            <strong>Order Date:</strong>
+                            <span id="resultDate"></span>
+                        </div>
+                        <div class="result-row">
+                            <strong>Order Code:</strong>
+                            <span id="resultCode"></span>
+                        </div>
+                        <div class="result-row">
+                            <strong>Current Status:</strong>
+                            <span id="resultStatus"></span>
+                        </div>
+                        <div class="result-row status-note">
+                            <strong>Status Note:</strong>
+                            <span id="resultNote"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-not-found" id="orderNotFound" style="display: none;">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <h3>Order Not Found</h3>
+                    <p>Please check your mobile number and order code. If the problem persists, contact us.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-microchip"></i>
+                    <h3>TECHINDIA PROJECT CENTER</h3>
+                </div>
+                <p>&copy; 2026 TECHINDIA PROJECT CENTER. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Captcha functionality
+        let currentCaptcha = '';
+
+        function generateCaptcha() {
+            const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
+            currentCaptcha = '';
+            for (let i = 0; i < 6; i++) {
+                currentCaptcha += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            document.getElementById('captchaText').textContent = currentCaptcha;
+        }
+
+        document.getElementById('refreshCaptcha').addEventListener('click', generateCaptcha);
+        generateCaptcha();
+
+        // Order status check
+        document.getElementById('orderStatusForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const mobile = document.getElementById('statusMobile').value;
+            const code = document.getElementById('orderCode').value;
+            const captchaInput = document.getElementById('captchaInput').value;
+
+            if (captchaInput !== currentCaptcha) {
+                alert('Invalid captcha. Please try again.');
+                generateCaptcha();
+                document.getElementById('captchaInput').value = '';
+                return;
+            }
+
+            // Get orders from localStorage
+            const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+            const order = orders.find(o => o.mobile === mobile && o.orderCode === code);
+
+            if (order) {
+                document.getElementById('orderNotFound').style.display = 'none';
+                document.getElementById('orderResult').style.display = 'block';
+
+                document.getElementById('resultOrderId').textContent = order.id;
+                document.getElementById('resultProject').textContent = order.projectTitle;
+                document.getElementById('resultName').textContent = order.name;
+                document.getElementById('resultMobile').textContent = order.mobile;
+                document.getElementById('resultEmail').textContent = order.email;
+                document.getElementById('resultAddress').textContent = order.address;
+                document.getElementById('resultPincode').textContent = order.pincode;
+                document.getElementById('resultDate').textContent = order.orderDate;
+                document.getElementById('resultCode').textContent = order.orderCode;
+                document.getElementById('resultStatus').textContent = order.status;
+                document.getElementById('resultNote').textContent = order.statusNote || 'No additional notes';
+
+                const badge = document.getElementById('orderStatusBadge');
+                badge.textContent = order.status;
+                badge.className = 'status-badge ' + order.status.toLowerCase().replace(' ', '-');
+            } else {
+                document.getElementById('orderResult').style.display = 'none';
+                document.getElementById('orderNotFound').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
